@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import Provider from "@/utils/Provider";
-import Navbar from "@/components/Navbar";
 
 const inter = Raleway({ subsets: ["latin"] });
 
@@ -21,10 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <Provider>
         <body className={inter.className}>
-          <div>
-            <Navbar />
-            {children}
-          </div>
+          <div className="bg-light_white">{children}</div>
         </body>
       </Provider>
     </html>

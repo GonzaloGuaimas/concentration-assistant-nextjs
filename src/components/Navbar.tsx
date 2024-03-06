@@ -16,18 +16,20 @@ const ButtonLink = ({ route, title }: { route: string; title: string }) => {
 
 const Navbar = () => {
   return (
-    <div className="inline-flex absolute top-5 w-full justify-center">
-      <div className="w-fit bg-white px-5 py-3 rounded-3xl inline-flex justify-center gap-5 items-center shadow-md">
-        <ButtonLink route="a" title="Features" />
-        <ButtonLink route="a" title="Beneficios" />
-        <Image
-          src="/logo.png"
-          alt="logo"
-          width={50}
-          height={50}
-          className="hover:scale-125 transition-all duration-300 cursor-pointer"
-        />
-        <ButtonLink route="a" title="Contacto" />
+    <div className="inline-flex fixed top-5 w-full justify-center z-50">
+      <div className="w-fit bg-white px-5 py-3 rounded-3xl inline-flex justify-center gap-5 items-center shadow-md  ">
+        <ButtonLink route="/app" title="Features" />
+        <ButtonLink route="/app" title="Beneficios" />
+        <Link href="/">
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={50}
+            height={50}
+            className="hover:scale-125 transition-all duration-300 cursor-pointer"
+          />
+        </Link>
+        <ButtonLink route="/app" title="Contacto" />
         <CallToActionBtn />
       </div>
     </div>
