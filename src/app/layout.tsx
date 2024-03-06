@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 import Provider from "@/utils/Provider";
+import Navbar from "@/components/Navbar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Asistente de concentración",
@@ -20,8 +21,8 @@ export default function RootLayout({
     <html lang="en">
       <Provider>
         <body className={inter.className}>
-          <div className="relative">
-            <div className="inline-flex w-full px-5 py-3 bg-white absolute top-0"></div>
+          <div>
+            <Navbar />
             {children}
           </div>
         </body>
