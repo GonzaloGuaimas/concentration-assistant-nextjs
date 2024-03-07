@@ -1,0 +1,282 @@
+[
+  {
+    "index": 1,
+    "time": "00:01",
+    "Puntos concentración": 0,
+    "Puntos desconcentración": 1,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 2,
+    "time": "00:02",
+    "Puntos concentración": 1,
+    "Puntos desconcentración": 1,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 3,
+    "time": "00:03",
+    "Puntos concentración": 2,
+    "Puntos desconcentración": 1,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 4,
+    "time": "00:04",
+    "Puntos concentración": 3,
+    "Puntos desconcentración": 1,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 5,
+    "time": "00:05",
+    "Puntos concentración": 4,
+    "Puntos desconcentración": 1,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 6,
+    "time": "00:06",
+    "Puntos concentración": 4,
+    "Puntos desconcentración": 2,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 7,
+    "time": "00:07",
+    "Puntos concentración": 5,
+    "Puntos desconcentración": 2,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 8,
+    "time": "00:08",
+    "Puntos concentración": 5,
+    "Puntos desconcentración": 3,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 9,
+    "time": "00:09",
+    "Puntos concentración": 6,
+    "Puntos desconcentración": 3,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 10,
+    "time": "00:10",
+    "Puntos concentración": 6,
+    "Puntos desconcentración": 4,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 11,
+    "time": "00:11",
+    "Puntos concentración": 6,
+    "Puntos desconcentración": 5,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 12,
+    "time": "00:12",
+    "Puntos concentración": 6,
+    "Puntos desconcentración": 6,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 13,
+    "time": "00:13",
+    "Puntos concentración": 6,
+    "Puntos desconcentración": 7,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 14,
+    "time": "00:14",
+    "Puntos concentración": 6,
+    "Puntos desconcentración": 8,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 15,
+    "time": "00:15",
+    "Puntos concentración": 6,
+    "Puntos desconcentración": 9,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 16,
+    "time": "00:16",
+    "Puntos concentración": 6,
+    "Puntos desconcentración": 10,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 17,
+    "time": "00:17",
+    "Puntos concentración": 6,
+    "Puntos desconcentración": 11,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 18,
+    "time": "00:18",
+    "Puntos concentración": 7,
+    "Puntos desconcentración": 11,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 19,
+    "time": "00:19",
+    "Puntos concentración": 7,
+    "Puntos desconcentración": 12,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 20,
+    "time": "00:20",
+    "Puntos concentración": 8,
+    "Puntos desconcentración": 12,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 21,
+    "time": "00:21",
+    "Puntos concentración": 8,
+    "Puntos desconcentración": 13,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 22,
+    "time": "00:22",
+    "Puntos concentración": 8,
+    "Puntos desconcentración": 14,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 23,
+    "time": "00:23",
+    "Puntos concentración": 8,
+    "Puntos desconcentración": 15,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 24,
+    "time": "00:24",
+    "Puntos concentración": 8,
+    "Puntos desconcentración": 16,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 25,
+    "time": "00:25",
+    "Puntos concentración": 8,
+    "Puntos desconcentración": 17,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 26,
+    "time": "00:26",
+    "Puntos concentración": 8,
+    "Puntos desconcentración": 18,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 27,
+    "time": "00:27",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 18,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 28,
+    "time": "00:28",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 19,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 29,
+    "time": "00:29",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 20,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 30,
+    "time": "00:30",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 21,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 31,
+    "time": "00:31",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 22,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 32,
+    "time": "00:32",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 23,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 33,
+    "time": "00:33",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 24,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 34,
+    "time": "00:34",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 25,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 35,
+    "time": "00:35",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 26,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 36,
+    "time": "00:36",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 27,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 37,
+    "time": "00:37",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 28,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 38,
+    "time": "00:38",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 29,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 39,
+    "time": "00:39",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 30,
+    "Puntos uso teléfono": 0
+  },
+  {
+    "index": 40,
+    "time": "00:40",
+    "Puntos concentración": 9,
+    "Puntos desconcentración": 31,
+    "Puntos uso teléfono": 0
+  }
+]

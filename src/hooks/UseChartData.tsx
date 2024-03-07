@@ -1,16 +1,14 @@
+import { formattedResultsState } from "@/atoms/formattedResultsState";
 import { DetectionResults } from "@/types/objectDetection.type";
 import { FormattedResultsData } from "@/types/resultsData";
 import React, { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
 
 const UseChartData = (sessionResults: DetectionResults[]) => {
-  // const [data, setdata] = useState(data_example);
-  const [formattedResults, setFormattedResults] = useState<
-    FormattedResultsData[]
-  >([]);
+  const [, setFormattedResults] = useRecoilState(formattedResultsState);
 
   useEffect(() => {
     const formattedData = processArray(sessionResults);
-    console.log(formattedData);
     setFormattedResults(formattedData);
   }, [sessionResults]);
 
@@ -62,8 +60,6 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
     // Añadir un cero delante si es necesario
     return num < 10 ? `0${num}` : num;
   }
-
-  return { formattedResults };
 };
 
 export default UseChartData;
