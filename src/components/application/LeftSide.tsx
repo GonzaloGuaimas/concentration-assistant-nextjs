@@ -1,23 +1,27 @@
 "use client";
-import { currentTimeState } from "@/atoms/currentTimeState";
+import { currentSessionState } from "@/atoms/currentSessionState";
 import { ClockStatusEnum } from "@/types/enums";
 import React from "react";
 import { useRecoilState } from "recoil";
 
-const LeftSide = ({
-  handleChangeClockState,
-}: {
-  handleChangeClockState: (state: ClockStatusEnum) => void;
-}) => {
-  const [currentTime] = useRecoilState(currentTimeState);
+const LeftSide = () => {
+  const [currentSession, setCurrentSession] =
+    useRecoilState(currentSessionState);
 
+  const handleChangeClockState = (status: ClockStatusEnum) => {
+    setCurrentSession((prev) => ({
+      ...prev,
+      time: 0,
+      status,
+    }));
+  };
   return (
     <div className="inline-flex flex-col w-[40vw] bg-primary min-h-screen pt-40 text-light_white px-20 justify-between pb-20">
       <div className="inline-flex flex-col gap-5">
         <div className="inline-flex flex-col w-fit">
           <p className="text-md -mb-5">Tiempo en curso</p>
-          <h4 className="text-[80px] font-bold">{currentTime}</h4>
-          <p className="text-md -mt-5 text-end">Ronda 2/3</p>
+          <h4 className="text-[80px] font-bold">{currentSession.time}</h4>
+          <p className="text-md -mt-5 text-end">Ronda {currentSession.lap}/3</p>
         </div>
         <div className="inline-flex w-full justify-end gap-5 pr-20">
           <button

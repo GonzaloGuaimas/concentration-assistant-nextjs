@@ -1,4 +1,3 @@
-import { currentTimeState } from "@/atoms/currentTimeState";
 import { formattedResultsState } from "@/atoms/formattedResultsState";
 import { percentResultsState } from "@/atoms/percentResultsState";
 import { DetectionResults } from "@/types/objectDetection.type";
@@ -14,7 +13,6 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
     formattedResultsState
   );
   const [, setPercentResults] = useRecoilState(percentResultsState);
-  const [, setCurrentTime] = useRecoilState(currentTimeState);
 
   useEffect(() => {
     const formattedData = processArray(sessionResults);
@@ -34,7 +32,6 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
     const point = data[data.length - 1];
 
     const totalPoints = point.index;
-    setCurrentTime(formatTime(totalPoints));
 
     const totalConcentrationPoints = point["Puntos concentración"];
     const totalDesconcentrationPoints = point["Puntos desconcentración"];
@@ -53,17 +50,17 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
       concentration: {
         percent: concentrationPercent,
         integer: concentrationInteger,
-        minutes: formatTime(totalConcentrationPoints),
+        minutes: formatTime(totalConcentrationPoints * 5),
       },
       desconcentration: {
         percent: desconcentrationPercent,
         integer: desconcentrationInteger,
-        minutes: formatTime(totalDesconcentrationPoints),
+        minutes: formatTime(totalDesconcentrationPoints * 5),
       },
       phoneUsage: {
         percent: phoneUsagePercent,
         integer: phoneUsageInteger,
-        minutes: formatTime(totalPhoneUsagePoints),
+        minutes: formatTime(totalPhoneUsagePoints * 5),
       },
     };
   }

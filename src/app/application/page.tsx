@@ -13,6 +13,7 @@ import { sessionModelState } from "@/atoms/sessionModelState";
 import { useRouter } from "next/navigation";
 import UseChartData from "@/hooks/UseChartData";
 import example_data from "../../utils/example_data.json";
+import { currentSessionState } from "@/atoms/currentSessionState";
 
 export default function Home() {
   const router = useRouter();
@@ -22,9 +23,8 @@ export default function Home() {
   const [sessionResults, setSessionResults] = useState<DetectionResults[]>([]);
   const [session] = useRecoilState(sessionModelState);
   UseChartData(sessionResults);
-  const [clockState, setClockState] = useState<ClockStatusEnum>(
-    ClockStatusEnum.PAUSED
-  );
+  const [currentSession, setCurrentSession] =
+    useRecoilState(currentSessionState);
 
   useEffect(() => {
     if (!session) router.replace("/");
@@ -32,12 +32,14 @@ export default function Home() {
   }, [session]);
 
   useEffect(() => {
-    if (stream) startApp();
+    if (stream) {
+      startApp(), startClock();
+    }
   }, [stream]);
 
   useEffect(() => {
-    statusManager(clockState);
-  }, [clockState]);
+    statusManager(currentSession.status);
+  }, [currentSession.status]);
 
   function statusManager(status: ClockStatusEnum): void {
     switch (status) {
@@ -51,10 +53,6 @@ export default function Home() {
         break;
     }
   }
-
-  const handleChangeClockState = (state: ClockStatusEnum) => {
-    setClockState(state);
-  };
 
   const startCamera = async () => {
     try {
@@ -71,10 +69,17 @@ export default function Home() {
   };
 
   function startApp() {
-    setClockState(ClockStatusEnum.RUNNING);
+    setCurrentSession((prev) => ({ ...prev, status: ClockStatusEnum.RUNNING }));
     const intervalId = setInterval(() => {
       console.log("capturing");
       captureAndDetectCurrentVideo();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }
+  function startClock() {
+    const intervalId = setInterval(() => {
+      setCurrentSession((prev) => ({ ...prev, time: prev.time + 1 }));
     }, 1000);
 
     return () => clearInterval(intervalId);
@@ -109,7 +114,7 @@ export default function Home() {
 
   return (
     <main className="flex items-center justify-between w-full relative">
-      <LeftSide handleChangeClockState={handleChangeClockState} />
+      <LeftSide />
       <RightSide videoRef={videoRef} />
       <LogoButton />
       {/* Back Btn */}
