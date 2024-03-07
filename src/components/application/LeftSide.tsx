@@ -1,7 +1,12 @@
 "use client";
+import { ClockStatusEnum } from "@/types/enums";
 import React from "react";
 
-const LeftSide = ({ startCamera }: { startCamera: () => void }) => {
+const LeftSide = ({
+  handleChangeClockState,
+}: {
+  handleChangeClockState: (state: ClockStatusEnum) => void;
+}) => {
   return (
     <div className="inline-flex flex-col w-[40vw] bg-primary min-h-screen pt-40 text-light_white px-20 justify-between pb-20">
       <div className="inline-flex flex-col gap-5">
@@ -13,9 +18,15 @@ const LeftSide = ({ startCamera }: { startCamera: () => void }) => {
         <div className="inline-flex w-full justify-end gap-5 pr-20">
           <button
             className="px-5 py-3 bg-light_white text-primary rounded-2xl shadow-lg hover:bg-light_gray transition-all duration-300 font-semibold w-fit"
-            onClick={startCamera}
+            onClick={() => handleChangeClockState(ClockStatusEnum.RUNNING)}
           >
             Comenzar
+          </button>
+          <button
+            className="px-5 py-3 bg-light_white text-primary rounded-2xl shadow-lg hover:bg-light_gray transition-all duration-300 font-semibold w-fit"
+            onClick={() => handleChangeClockState(ClockStatusEnum.STOPPED)}
+          >
+            Detener
           </button>
         </div>
       </div>

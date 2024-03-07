@@ -1,4 +1,4 @@
 export interface DetectionResults {
-  label: string;
+  label: number;
   confidence: number;
 }
