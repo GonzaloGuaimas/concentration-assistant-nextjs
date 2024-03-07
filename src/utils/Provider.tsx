@@ -13,9 +13,10 @@ const Provider = ({
 }>) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <RecoilRoot>{children}</RecoilRoot>
-      </AuthProvider>
+      <RecoilRoot>{children}</RecoilRoot>
+      {/* <AuthProvider>
+        
+      </AuthProvider> */}
     </QueryClientProvider>
   );
 };
