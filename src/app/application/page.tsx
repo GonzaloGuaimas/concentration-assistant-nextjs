@@ -27,13 +27,11 @@ export default function Home() {
   );
 
   useEffect(() => {
-    //  TODO tu sesión a expirado -> volver al inicio
     if (!session) router.replace("/");
     else console.log("Model is downloaded");
   }, [session]);
 
   useEffect(() => {
-    //  after stream is running,
     if (stream) startApp();
   }, [stream]);
 
@@ -112,7 +110,7 @@ export default function Home() {
   return (
     <main className="flex items-center justify-between w-full relative">
       <LeftSide handleChangeClockState={handleChangeClockState} />
-      <RightSide videoRef={videoRef} clockState={clockState} />
+      <RightSide videoRef={videoRef} />
       <LogoButton />
       {/* Back Btn */}
       <div className="absolute top-10 left-10">

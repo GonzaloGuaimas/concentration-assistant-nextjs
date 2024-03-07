@@ -1,16 +1,72 @@
+import { currentTimeState } from "@/atoms/currentTimeState";
 import { formattedResultsState } from "@/atoms/formattedResultsState";
+import { percentResultsState } from "@/atoms/percentResultsState";
 import { DetectionResults } from "@/types/objectDetection.type";
-import { FormattedResultsData } from "@/types/resultsData";
-import React, { useEffect, useState } from "react";
+import {
+  FormattedResultsData,
+  PercentajeResultData,
+} from "@/types/resultsData";
+import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 
 const UseChartData = (sessionResults: DetectionResults[]) => {
-  const [, setFormattedResults] = useRecoilState(formattedResultsState);
+  const [formattedResults, setFormattedResults] = useRecoilState(
+    formattedResultsState
+  );
+  const [, setPercentResults] = useRecoilState(percentResultsState);
+  const [, setCurrentTime] = useRecoilState(currentTimeState);
 
   useEffect(() => {
     const formattedData = processArray(sessionResults);
     setFormattedResults(formattedData);
   }, [sessionResults]);
+
+  useEffect(() => {
+    if (formattedResults.length > 0) {
+      const percentajes = calculatePercentages(formattedResults);
+      setPercentResults(percentajes);
+    }
+  }, [formattedResults]);
+
+  function calculatePercentages(
+    data: FormattedResultsData[]
+  ): PercentajeResultData {
+    const point = data[data.length - 1];
+
+    const totalPoints = point.index;
+    setCurrentTime(formatTime(totalPoints));
+
+    const totalConcentrationPoints = point["Puntos concentración"];
+    const totalDesconcentrationPoints = point["Puntos desconcentración"];
+    const totalPhoneUsagePoints = point["Puntos uso teléfono"];
+
+    const concentrationPercent = (totalConcentrationPoints / totalPoints) * 100;
+    const desconcentrationPercent =
+      (totalDesconcentrationPoints / totalPoints) * 100;
+    const phoneUsagePercent = (totalPhoneUsagePoints / totalPoints) * 100;
+
+    const concentrationInteger = Math.round(concentrationPercent);
+    const desconcentrationInteger = Math.round(desconcentrationPercent);
+    const phoneUsageInteger = Math.round(phoneUsagePercent);
+
+    return {
+      concentration: {
+        percent: concentrationPercent,
+        integer: concentrationInteger,
+        minutes: formatTime(totalConcentrationPoints),
+      },
+      desconcentration: {
+        percent: desconcentrationPercent,
+        integer: desconcentrationInteger,
+        minutes: formatTime(totalDesconcentrationPoints),
+      },
+      phoneUsage: {
+        percent: phoneUsagePercent,
+        integer: phoneUsageInteger,
+        minutes: formatTime(totalPhoneUsagePoints),
+      },
+    };
+  }
 
   function processArray(data: DetectionResults[]): FormattedResultsData[] {
     let time = 0;
@@ -20,10 +76,8 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
     const result = [];
 
     for (let i = 0; i < data.length; i++) {
-      // Incrementar el tiempo en 1 segundo
       time++;
 
-      // Incrementar el recuento de la etiqueta actual
       switch (data[i].label) {
         case 0:
           acc_label_0++;
@@ -35,8 +89,6 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
           acc_label_2++;
           break;
       }
-
-      // Agregar el objeto resultante al resultado
       result.push({
         index: i + 1,
         time: formatTime(time),
@@ -50,14 +102,12 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
   }
 
   function formatTime(time: any) {
-    // Formatear el tiempo en formato HH:mm
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
     return `${padZero(minutes)}:${padZero(seconds)}`;
   }
 
   function padZero(num: any) {
-    // Añadir un cero delante si es necesario
     return num < 10 ? `0${num}` : num;
   }
 };
