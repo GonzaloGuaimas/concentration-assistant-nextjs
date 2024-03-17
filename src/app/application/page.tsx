@@ -4,32 +4,21 @@ import LogoButton from "@/components/application/LogoButton";
 import RightSide from "@/components/application/RightSide";
 import { ClockStatusEnum } from "@/types/enums";
 import { DetectionResults } from "@/types/objectDetection.type";
-import { detectImage } from "@/utils/model/model-detect";
-import { resultTransform } from "@/utils/model/model-results";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import { sessionModelState } from "@/atoms/sessionModelState";
-import { useRouter } from "next/navigation";
 import UseChartData from "@/hooks/UseChartData";
 import example_data from "../../utils/example_data.json";
 import { currentSessionState } from "@/atoms/currentSessionState";
 
 export default function Home() {
-  const router = useRouter();
   const videoRef = useRef(null);
   const [stream, setStream] = useState<any>(null);
   const canvasRef = useRef<any>(null);
   const [sessionResults, setSessionResults] = useState<DetectionResults[]>([]);
-  const [session] = useRecoilState(sessionModelState);
   UseChartData(sessionResults);
   const [currentSession, setCurrentSession] =
     useRecoilState(currentSessionState);
-
-  useEffect(() => {
-    if (!session) router.replace("/");
-    else console.log("Model is downloaded");
-  }, [session]);
 
   useEffect(() => {
     if (stream) {
@@ -93,22 +82,21 @@ export default function Home() {
     if (canvas) {
       canvas.width = videoWidth;
       canvas.height = videoHeight;
-
       const context = canvas.getContext("2d");
       context.drawImage(videoRef.current, 0, 0, videoWidth, videoHeight);
-
       const img = new Image();
       img.src = canvas.toDataURL("image/jpeg");
-      console.log("results");
-      const result = await detectImage(img, session);
-      const resultTransformed = resultTransform(result);
-      console.log(
-        `label: ${resultTransformed[0].label} | ${resultTransformed[0].confidence}`
-      );
-      // setDetectionResult(resultTransformed);
+      const toBlobPromise = () =>
+        new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg"));
+      const blob = await toBlobPromise();
+      const formData = new FormData();
+      formData.append("image", blob as any, "image.jpeg");
+      const response = await fetch("http://localhost:4000/detection", {
+        method: "POST",
+        body: formData,
+      });
+      const result = await response.json();
       setSessionResults((prev: any) => [...prev, result[0]]);
-
-      URL.revokeObjectURL(img.src);
     }
   };
 
