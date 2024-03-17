@@ -1,6 +1,7 @@
 "use client";
 import { currentSessionState } from "@/atoms/currentSessionState";
 import { ClockStatusEnum } from "@/types/enums";
+import { formatTime } from "@/utils/formatters";
 import React from "react";
 import { useRecoilState } from "recoil";
 
@@ -20,7 +21,9 @@ const LeftSide = () => {
       <div className="inline-flex flex-col gap-5">
         <div className="inline-flex flex-col w-fit">
           <p className="text-md -mb-5">Tiempo en curso</p>
-          <h4 className="text-[80px] font-bold">{currentSession.time}</h4>
+          <h4 className="text-[80px] font-bold">
+            {formatTime(currentSession.time)}
+          </h4>
           <p className="text-md -mt-5 text-end">Ronda {currentSession.lap}/3</p>
         </div>
         <div className="inline-flex w-full justify-end gap-5 pr-20">

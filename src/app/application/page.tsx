@@ -36,6 +36,8 @@ export default function Home() {
         startCamera();
         break;
       case ClockStatusEnum.STOPPED:
+        console.log("parar camara");
+        stopCamera();
         break;
 
       default:
@@ -57,21 +59,42 @@ export default function Home() {
     }
   };
 
+  const stopCamera = () => {
+    if (stream) {
+      stream.getTracks().forEach((track: any) => {
+        track.stop();
+      });
+      setStream(null);
+      if (videoRef.current) {
+        (videoRef.current as any).srcObject = null;
+      }
+    }
+  };
+
   function startApp() {
     setCurrentSession((prev) => ({ ...prev, status: ClockStatusEnum.RUNNING }));
     const intervalId = setInterval(() => {
-      console.log("capturing");
       captureAndDetectCurrentVideo();
-    }, 5000);
-
-    return () => clearInterval(intervalId);
-  }
-  function startClock() {
-    const intervalId = setInterval(() => {
-      setCurrentSession((prev) => ({ ...prev, time: prev.time + 1 }));
     }, 1000);
 
     return () => clearInterval(intervalId);
+  }
+
+  useEffect(() => {
+    let interval: string | number | NodeJS.Timeout | undefined;
+    if (currentSession.status === ClockStatusEnum.RUNNING) {
+      interval = setInterval(() => {
+        setCurrentSession((prev) => ({ ...prev, time: prev.time + 1 }));
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+
+    return () => clearInterval(interval);
+  }, [currentSession.status]);
+
+  function startClock() {
+    setCurrentSession((prev) => ({ ...prev, time: 0 }));
   }
 
   const captureAndDetectCurrentVideo = async () => {

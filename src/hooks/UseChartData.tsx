@@ -5,6 +5,7 @@ import {
   FormattedResultsData,
   PercentajeResultData,
 } from "@/types/resultsData";
+import { formatTime } from "@/utils/formatters";
 import { useEffect } from "react";
 import { useRecoilState } from "recoil";
 
@@ -50,17 +51,17 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
       concentration: {
         percent: concentrationPercent,
         integer: concentrationInteger,
-        minutes: formatTime(totalConcentrationPoints * 5),
+        minutes: formatTime(totalConcentrationPoints),
       },
       desconcentration: {
         percent: desconcentrationPercent,
         integer: desconcentrationInteger,
-        minutes: formatTime(totalDesconcentrationPoints * 5),
+        minutes: formatTime(totalDesconcentrationPoints),
       },
       phoneUsage: {
         percent: phoneUsagePercent,
         integer: phoneUsageInteger,
-        minutes: formatTime(totalPhoneUsagePoints * 5),
+        minutes: formatTime(totalPhoneUsagePoints),
       },
     };
   }
@@ -96,16 +97,6 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
     }
 
     return result;
-  }
-
-  function formatTime(time: any) {
-    const minutes = Math.floor(time / 60);
-    const seconds = time % 60;
-    return `${padZero(minutes)}:${padZero(seconds)}`;
-  }
-
-  function padZero(num: any) {
-    return num < 10 ? `0${num}` : num;
   }
 };
 
