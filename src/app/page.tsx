@@ -3,6 +3,7 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Benefits from "@/components/home/Benefits";
+import Contact from "@/components/home/Contact";
 import Hero from "@/components/home/Hero";
 import HowItWorks from "@/components/home/HowItWorks";
 
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <HowItWorks />
         <Benefits />
+        <Contact />
       </div>
       <Footer />
     </main>
