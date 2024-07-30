@@ -32,7 +32,7 @@ const Benefits = () => {
               Retroalimentación en Tiempo Real
             </h3>
             <p className="text-justify">
-              Obtén retroalimentación instantánea sobre tu estado de
+              Obtené retroalimentación instantánea sobre tu estado de
               concentración. La app te alerta si estás distraído o utilizando tu
               teléfono, permitiéndote ajustar tu comportamiento de inmediato.
               Esta función es crucial para mantener un enfoque constante y

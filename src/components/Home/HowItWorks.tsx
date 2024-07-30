@@ -71,7 +71,7 @@ const HowItWorks = () => {
           </Card>
           <Card>
             <CardContent
-              title="Análisis de Datos y Estadísticas"
+              title="Estadísticas"
               image_url="/images/stadistics.png"
               description="La app recopila y analiza datos de tus sesiones de estudio, proporcionando estadísticas detalladas sobre tus niveles de concentración, distracción y uso del teléfono. Esta información te ayudará a entender mejor tus hábitos de estudio e identificar áreas de mejora."
               index={4}
