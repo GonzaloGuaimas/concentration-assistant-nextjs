@@ -1,15 +1,14 @@
 "use client";
+import { currentSessionState } from "@/atoms/currentSessionState";
 import LeftSide from "@/components/application/LeftSide";
 import LogoButton from "@/components/application/LogoButton";
 import RightSide from "@/components/application/RightSide";
+import UseChartData from "@/hooks/UseChartData";
 import { ClockStatusEnum } from "@/types/enums";
 import { DetectionResults } from "@/types/objectDetection.type";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
-import UseChartData from "@/hooks/UseChartData";
-import example_data from "../../utils/example_data.json";
-import { currentSessionState } from "@/atoms/currentSessionState";
 
 export default function Home() {
   const videoRef = useRef(null);
@@ -126,7 +125,7 @@ export default function Home() {
   return (
     <main className="flex items-center justify-between w-full relative">
       <LeftSide />
-      <RightSide videoRef={videoRef} />
+      <RightSide videoRef={videoRef} sessionResults={sessionResults} />
       <LogoButton />
       {/* Back Btn */}
       <div className="absolute top-10 left-10">
