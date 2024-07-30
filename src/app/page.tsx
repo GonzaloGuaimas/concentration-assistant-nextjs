@@ -2,6 +2,7 @@
 
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Benefits from "@/components/home/Benefits";
 import Hero from "@/components/home/Hero";
 import HowItWorks from "@/components/home/HowItWorks";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <div className="inline-flex flex-col gap-5 w-full justify-center items-center mb-20">
         <Hero />
         <HowItWorks />
+        <Benefits />
       </div>
       <Footer />
     </main>

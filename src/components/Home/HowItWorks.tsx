@@ -37,12 +37,12 @@ const HowItWorks = () => {
     <div className="w-full px-10">
       <div className="w-full py-8 rounded-3xl gap-8 bg-light_gray justify-center items-center inline-flex flex-col">
         <div className="inline-flex flex-col gap-3 mt-10">
-          <p className="text-xl text-primary font-semibold self-center">
+          <h2 className="text-2xl font-bold text-secondary text-center">
             Características
-          </p>
-          <h2 className="text-2xl font-bold text-secondary max-w-[30vw] text-center">
-            Mejorá tu concentración con Inteligencia Artificial
           </h2>
+          <p className="text-xl text-primary font-semibold self-center max-w-[30vw] text-center">
+            Mejorá tu concentración con Inteligencia Artificial
+          </p>
         </div>
         <div className="grid grid-cols-2 gap-5 w-full px-10">
           <Card>
