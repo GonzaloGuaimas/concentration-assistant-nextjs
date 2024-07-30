@@ -34,10 +34,10 @@ const CardContent = ({
 
 const HowItWorks = () => {
   return (
-    <div className="w-full px-10">
-      <div className="w-full py-8 rounded-3xl gap-8 bg-light_gray justify-center items-center inline-flex flex-col">
+    <div className="w-full px-10 mt-14">
+      <div className="w-full py-8 rounded-3xl gap-8 bg-light_gray justify-center items-center inline-flex flex-col border-4 border-primary">
         <div className="inline-flex flex-col gap-3 mt-10">
-          <h2 className="text-2xl font-bold text-secondary text-center">
+          <h2 className="text-2xl font-bold text-black text-center">
             Características
           </h2>
           <p className="text-xl text-primary font-semibold self-center max-w-[30vw] text-center">
