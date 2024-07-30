@@ -1,5 +1,5 @@
 "use client";
-import React, { RefObject } from "react";
+import { RefObject } from "react";
 import { GraphComponent } from "./GraphComponent";
 import InformativesCards from "./InformativesCards";
 
@@ -9,11 +9,11 @@ const RightSide = ({ videoRef }: { videoRef: RefObject<HTMLVideoElement> }) => {
       {/* Header */}
       <div className="inline-flex flex-col gap-1 max-w-[40vw]">
         <h2 className="text-3xl font-bold text-primary">
-          Concentrate! tu tiempo vale oro
+          ¡Concentrate! 👀 tu tiempo vale oro 🏆
         </h2>
         <p className="text-dark_gray">
-          Nuestra Inteligencia Artificial te está observando. Concentrate en tus
-          tareas!
+          Nuestra <strong>Inteligencia Artificial</strong> 🤖 te está
+          observando. <strong>!Concentrate 🧠 en tus tareas!</strong>
         </p>
       </div>
 

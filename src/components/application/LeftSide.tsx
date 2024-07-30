@@ -2,7 +2,6 @@
 import { currentSessionState } from "@/atoms/currentSessionState";
 import { ClockStatusEnum } from "@/types/enums";
 import { formatTime } from "@/utils/formatters";
-import React from "react";
 import { useRecoilState } from "recoil";
 
 const LeftSide = () => {
@@ -24,20 +23,28 @@ const LeftSide = () => {
           <h4 className="text-[80px] font-bold">
             {formatTime(currentSession.time)}
           </h4>
-          <p className="text-md -mt-5 text-end">Ronda {currentSession.lap}/3</p>
+          <p className="text-md -mt-5 text-end">
+            Intervalo {currentSession.lap}/3
+          </p>
         </div>
-        <div className="inline-flex w-full justify-end gap-5 pr-20">
+        <div className="inline-flex w-full justify-end gap-5">
           <button
             className="px-5 py-3 bg-light_white text-primary rounded-2xl shadow-lg hover:bg-light_gray transition-all duration-300 font-semibold w-fit"
             onClick={() => handleChangeClockState(ClockStatusEnum.RUNNING)}
           >
-            Comenzar
+            Comenzar 🚀
+          </button>
+          <button
+            className="px-5 py-3 bg-light_white text-primary rounded-2xl shadow-lg hover:bg-light_gray transition-all duration-300 font-semibold w-fit"
+            onClick={() => console.log("nada")}
+          >
+            Pausar 🤚🏼
           </button>
           <button
             className="px-5 py-3 bg-light_white text-primary rounded-2xl shadow-lg hover:bg-light_gray transition-all duration-300 font-semibold w-fit"
             onClick={() => handleChangeClockState(ClockStatusEnum.STOPPED)}
           >
-            Detener
+            Detener 🛑
           </button>
         </div>
       </div>
