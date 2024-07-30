@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 
 const Footer = () => {
   return (
@@ -8,9 +7,10 @@ const Footer = () => {
       <div className="inline-flex flex-col gap-2">
         <h4 className="text-2xl font-bold">Asistente de Concentración</h4>
         <p className="text-dark_white">
-          Mediante visión artificial controlaremos tu concentración frente a tus
-          tareas y aumentaremos x100 tu efectividad!. Comenzá a utilizar tu
-          tiempo de la mejor forma ahora!.
+          Aprovechá la potencia de la visión artificial para optimizar tu
+          concentración. Con nuestra herramienta, potenciarás tu efectividad y
+          gestionarás tu tiempo de manera más eficiente. ¡Empezá ahora a
+          transformar tu productividad y alcanzar tus metas académicas!
         </p>
       </div>
       <div className="inline-flex flex-col gap-2 justify-center items-center">
