@@ -32,16 +32,21 @@ const UseChartData = (sessionResults: DetectionResults[]) => {
   ): PercentajeResultData {
     const point = data[data.length - 1];
 
-    const totalPoints = point.index;
-
     const totalConcentrationPoints = point["Puntos concentración"];
     const totalDesconcentrationPoints = point["Puntos desconcentración"];
     const totalPhoneUsagePoints = point["Puntos uso teléfono"];
 
-    const concentrationPercent = (totalConcentrationPoints / totalPoints) * 100;
+    const totalDetectedPoints =
+      totalConcentrationPoints +
+      totalDesconcentrationPoints +
+      totalPhoneUsagePoints;
+
+    const concentrationPercent =
+      (totalConcentrationPoints / totalDetectedPoints) * 100;
     const desconcentrationPercent =
-      (totalDesconcentrationPoints / totalPoints) * 100;
-    const phoneUsagePercent = (totalPhoneUsagePoints / totalPoints) * 100;
+      (totalDesconcentrationPoints / totalDetectedPoints) * 100;
+    const phoneUsagePercent =
+      (totalPhoneUsagePoints / totalDetectedPoints) * 100;
 
     const concentrationInteger = Math.round(concentrationPercent);
     const desconcentrationInteger = Math.round(desconcentrationPercent);
